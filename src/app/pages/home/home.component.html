@@ -1,0 +1,18 @@
+<ng-template #content let-modal>
+  <app-task-form [onCancel]="onCancel"></app-task-form>
+</ng-template>
+
+<div class="container">
+  <h2>Tasks</h2>
+  <button class="btn btn-primary mb-3" (click)="createTask(content)">
+    Create new Task
+  </button>
+
+  <ul>
+    <li *ngFor="let t of tasks | async">
+      <app-task [data]="t"></app-task>
+    </li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>
